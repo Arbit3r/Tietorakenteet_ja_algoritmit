@@ -1,16 +1,13 @@
-package src;
+package tasks;
 
-import java.util.Iterator;
+import src.ListItem;
 
-/*
- * Jono harjoitus
- */
-public class Stack {
+public class Pino {
 
 	private ListItem mTop; // Viite pinojen huipulle
 	private int mSize; // pinon lkm
 
-	public Stack() {
+	public Pino() {
 
 		mTop = null;
 		mSize = 0;
@@ -41,23 +38,18 @@ public class Stack {
 	}
 
 	/*
-	 * Poista alkio pinon lopusta,jos pino on tyhj� > palauta null
+	 * Poista alkio pinon huipulta,jos pino on tyhj� > palauta null
 	 */
 	public ListItem pop() {
-		
-		ListItem temp;
-		temp = mTop;
-		for (int i = 0; i < mSize; i++) {
-			System.out.println(i + " Tämänhetkinen");
-			if(temp.getNext().getNext() == null) {
-				ListItem t = temp.getNext();
-				temp.setNext(null);
-				mSize--;
-				return t;
-			}
-			temp = temp.getNext();
+
+		if (mTop.getNext() == null) {
+			return null;
+		} else if (mTop.getNext() != null) {
+			mTop = mTop.getNext();
+			mSize--;
+			return mTop;
 		}
-		return null;
+		return mTop;
 
 	}
 	/*
