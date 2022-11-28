@@ -1,0 +1,72 @@
+package src;
+
+public class Stack {
+
+	private ListItem mTop; // Viite pinojen huipulle
+	private int mSize; // pinon lkm
+
+	public Stack() {
+
+		mTop = new ListItem();
+		mSize = 0;
+
+	}
+
+	/*
+	 * muodosta uusi lista-alkio, vie se pinon huipulle
+	 */
+	public void push(String data) {
+
+		mTop.setNext(mTop);
+		mTop.setData(data);
+		mSize++;
+
+	}
+
+	/*
+	 * Poista alkio pinon huipulta,jos pino on tyhj� > palauta null
+	 */
+	public ListItem pop() {
+		
+		if(mTop.getNext() == null) {
+			return null;
+		} else if (mTop.getNext() != null) {
+			mTop = mTop.getNext();
+			System.out.println(mTop.getData());
+			System.out.println(mTop.getNext().getData());
+			mSize--;
+			return mTop;
+		}
+		return mTop;
+
+		
+	}
+	/*
+	 * Tulosta pinon sis�lt�
+	 */
+
+	public void printItems() {
+
+	}
+
+	public int Amount() {
+		return mSize;
+	}
+
+	public ListItem getmTop() {
+		return mTop;
+	}
+
+	public void setmTop(ListItem mTop) {
+		this.mTop = mTop;
+	}
+
+	public int getmSize() {
+		return mSize;
+	}
+
+	public void setmSize(int mSize) {
+		this.mSize = mSize;
+	}
+
+}
