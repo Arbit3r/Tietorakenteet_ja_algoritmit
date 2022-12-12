@@ -3,5 +3,4 @@ INDEX VERSION 1.131+C:\Users\rikuk\Documents\tietorakenteet-ja-algoritmit\.metad
 3768861369.index
 2126567194.index
 1865797976.index
-3910274706.index
 1746101340.index
