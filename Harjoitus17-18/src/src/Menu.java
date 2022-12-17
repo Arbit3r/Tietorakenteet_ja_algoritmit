@@ -33,6 +33,7 @@ public class Menu {
 			System.out.println("\t\t\t2. Etsi avaimella.");
 			System.out.println("\t\t\t3. InOrder ");
 			System.out.println("\t\t\t4. Generoi 100k numeroita ");
+			System.out.println("\t\t\t5. Lopetus ");
 			System.out.print("\n\n"); // tehdään tyhjiä rivejä
 			select = Lue.merkki();
 			switch (select) {
@@ -44,7 +45,7 @@ public class Menu {
 			case '2':
 				System.out.println("Anna etsittävä avain (merkkijono)");
 				data = Integer.parseInt(Lue.rivi());
-				ts.contains(data);
+				System.out.println("Löytyikö: " + ts.contains(data));
 				break;
 			case '3':
 				System.out.println("Descending order: ");
@@ -74,8 +75,10 @@ public class Menu {
 				long EndTime = System.currentTimeMillis();
 				System.out.println("Aika millisekunteissa: " + (EndTime-startTime) + " Aika sekunteissa: " +  ((EndTime-startTime)/1000));
 				break;
+			case '5':
+				break;
 			}
-		} while (select != '6');
+		} while (select != '5');
 	}
 //printMenu loppuu ----------------------------------------------------------------
 }
