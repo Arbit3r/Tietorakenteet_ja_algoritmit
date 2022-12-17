@@ -186,26 +186,33 @@ public class BinaryTree {
 
 	public BinaryTree find(String aData) {
 		int d = Integer.parseInt(aData);
-		System.out.println(root.getData() + " " + aData);
-		if (Integer.parseInt(root.getData()) == d) {
-			return this;
-		}
-
-		if (d < Integer.parseInt(root.getData())) {
-			if (root.left() != null) {
-				return root.left().find(aData);
-			} else {
-				return null;
-			}
-		} else if (d > Integer.parseInt(root.getData())) {
-
-			if (root.right() != null) {
-				return root.right().find(aData);
-			} else {
-				return null;
+			
+			
+		if (root != null) {
+			//System.out.println(root.getData() + " " + aData);
+			if (Integer.parseInt(root.getData()) == d) {
+				return this;
 			}
 
+			if (d < Integer.parseInt(root.getData())) {
+				if (root.left() != null) {
+					return root.left().find(aData);
+				} else {
+					return null;
+				}
+			} else if (d > Integer.parseInt(root.getData())) {
+
+				if (root.right() != null) {
+					return root.right().find(aData);
+				} else {
+					return null;
+				}
+
+			}
+			
 		}
+		
+		
 		return null;
 	}
 
@@ -218,6 +225,25 @@ public class BinaryTree {
 				root.right().preOrder();
 		}
 
+	}
+	public void inOrder() {
+		if (root != null) {
+			
+			if (root.right() != null) {
+				// pääseekö oikealle?
+				root.right().inOrder();;
+			}
+				
+			System.out.println(root.getData() + ',');
+			
+			if (root.left() != null) {
+				// pääseeekö vasemmalle?
+				root.left().inOrder();;
+			}
+				
+			
+		}
+		
 	}
 
 	public int heightCalc(Node n) {

@@ -2,7 +2,6 @@ INDEX VERSION 1.131+C:\Users\rikuk\Documents\tietorakenteet-ja-algoritmit\.metad
 3570946901.index
 1640639596.index
 1291236504.index
-3926470453.index
 3768861369.index
 3896008123.index
 3704251735.index
@@ -15,7 +14,6 @@ INDEX VERSION 1.131+C:\Users\rikuk\Documents\tietorakenteet-ja-algoritmit\.metad
 1671503452.index
 3574461472.index
 4150226606.index
-2778010029.index
 1746101340.index
 3392489142.index
 3170700046.index
@@ -23,4 +21,5 @@ INDEX VERSION 1.131+C:\Users\rikuk\Documents\tietorakenteet-ja-algoritmit\.metad
 3152413882.index
 2835423418.index
 534017982.index
+597113280.index
 357970118.index

@@ -5,6 +5,8 @@
 
 package src;
 
+import java.util.Random;
+
 /**
  *
  * @author kamaj
@@ -30,7 +32,8 @@ public class Menu {
 			System.out.println("\t\t\t3. Käy puu läpi esijärjestyksessä.");
 			System.out.println("\t\t\t4. Poisto ");
 			System.out.println("\t\t\t5. Korkeus ");
-			System.out.println("\t\t\t6. lopetus ");
+			System.out.println("\t\t\t6. Generointi teht18 ");
+			System.out.println("\t\t\t7. lopetus ");
 			System.out.print("\n\n"); // tehdään tyhjiä rivejä
 			select = Lue.merkki();
 			switch (select) {
@@ -72,9 +75,27 @@ public class Menu {
 				}
 				break;
 			case '6':
+				BinaryTree tree2 = new BinaryTree();
+				Random r = new Random();
+				String b;
+				int i = 0;
+				long startTime = System.currentTimeMillis();
+				while (i < 100000) {
+					b = String.valueOf(r.nextInt(100000));
+					if(tree2.find(String.valueOf(b)) == null) {
+						i++;
+						tree2.insert(String.valueOf(b));
+					}
+					
+				}
+				tree2.inOrder();
+				long EndTime = System.currentTimeMillis();
+				System.out.println("Aika millisekunteissa: " + (EndTime-startTime) + " Aika sekunteissa: " +  ((EndTime-startTime)/1000));
+				break;
+			case '7':
 				break;
 			}
-		} while (select != '6');
+		} while (select != '7');
 	}
 //printMenu loppuu ----------------------------------------------------------------
 }
