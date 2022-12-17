@@ -29,12 +29,14 @@ public class Pikalajittelu {
         int hi = hi0;
         int mid, swap;
         mid = table[ (lo0 + hi0) / 2];
+        laskuri++;
         while (lo <= hi) {
+        	laskuri++;
             while (table[lo] < mid) {
             	laskuri++;
                 ++lo;
             }
-
+            laskuri++;
             while (table[hi] > mid) {
             	laskuri++;
                 --hi;
@@ -47,6 +49,7 @@ public class Pikalajittelu {
                 table[hi] = swap;
                 --hi;
             }
+            laskuri++;
         }
         laskuri++;
         if (lo0 < hi) {

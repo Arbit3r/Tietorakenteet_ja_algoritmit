@@ -9,10 +9,13 @@ package src;
  *
  * @author kamaj
  */
+
+//korjaa referenssi arvoihin
+
 import java.util.Random;
 
 public class SortAlgorithms {
-	final static int MAX = 50000;
+	final static int MAX = 7500;
 	static int sLaskuri = 0;
 	static int mLaskuri = 0;
 
@@ -22,7 +25,7 @@ public class SortAlgorithms {
 		mergeSort();
 		Pikalajittelu.quickSortLoop(MAX);
 		System.err.println("Sort " + sLaskuri + " Vertailu per alkio:" + ((double)sLaskuri/MAX));
-		System.err.println("Merge " + mLaskuri + " Vertailu per alkio:" + ((double)mLaskuri/MAX));
+		System.err.println("Merge " + (mLaskuri) + " Vertailu per alkio:" + ((double)mLaskuri/MAX));
 		System.err.println("Quick " + Pikalajittelu.laskuri + " Vertailu per alkio: " + ((double)Pikalajittelu.laskuri/MAX));
 	}
 
@@ -43,13 +46,14 @@ public class SortAlgorithms {
 		//Lue.merkki();
 		for (i = 0; i < MAX; i++) {
 			pienin = i;
-			
+			sLaskuri++;
 			for (j = i + 1; j < MAX; j++) {
 				/* löytyykö taulukon loppupäästä pienempää alkiota? */
 				sLaskuri++;
 				if (taul[j] < taul[pienin]) {
 					pienin = j;
 				}
+				sLaskuri++;
 			}
 			sLaskuri++;
 			if (pienin != i) {
@@ -59,6 +63,7 @@ public class SortAlgorithms {
 				taul[pienin] = taul[i];
 				taul[i] = apu;
 			}
+			
 		}
 		System.out.println();
 		for (i = 0; i < MAX; i++) {
@@ -105,12 +110,15 @@ public class SortAlgorithms {
 		// i osoittaa 1. osataulukkoa, j osoittaa 2. osataulukkoa
 		// k osoittaa aputaulukkoa, johon yhdiste kirjoitetaan.
 		int i = p, j = q + 1, k = 0;
+		mLaskuri+=2;
 		while (i < q + 1 && j < r + 1) {
-			mLaskuri++;
+			mLaskuri+=2;
 			if (t[i] < t[j]) {
 				tau[k++] = t[i++];
+				mLaskuri++;
 			} else {
 				tau[k++] = t[j++];
+				mLaskuri++;
 			}
 		}
 		// toinen osataulukko käsitelty, siirretään toisen käsittelemättömät
@@ -118,7 +126,7 @@ public class SortAlgorithms {
 			mLaskuri++;
 			tau[k++] = t[i++];
 		}
-			
+		
 		while (j < r + 1) {
 			mLaskuri++;
 			tau[k++] = t[j++];
@@ -134,12 +142,13 @@ public class SortAlgorithms {
 	public static void mergeSort(int t[], int alku, int loppu) {
 		int ositus;
 		long la, ll, lt;
-		mLaskuri++;
+		mLaskuri+=2;
 		if (alku < loppu) { // onko väh. 2 alkiota, että voidaan suorittaa ositus
 			la = alku;
 			ll = loppu;
 			lt = (la + ll) / 2;
 			ositus = (int) lt;
+			mLaskuri++;
 			mergeSort(t, alku, ositus);// lajitellaan taulukon alkupää
 			mergeSort(t, ositus + 1, loppu);// lajitellaan taulukon loppupää
 			merge(t, alku, ositus, loppu);// yhdistetään lajitellut osataulukot
