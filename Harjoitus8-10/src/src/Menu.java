@@ -38,6 +38,7 @@ public class Menu {
 				System.out.println("Anna uusi avain (merkkijono)");
 				data = new String(Lue.rivi());
 				tree.insert(data);
+				System.out.println("Korkeus: " + tree.heightCalc(tree.getRoot()));
 				break;
 			case '2':
 				System.out.println("Anna etsittävä avain (merkkijono)");
@@ -58,13 +59,14 @@ public class Menu {
 				data = Lue.rivi();
 				tree.delete(data);
 				tree.preOrder();
+				System.out.println("Korkeus: " + tree.heightCalc(tree.getRoot()));
 				break;
 			case '5':
-				System.out.println("Anna etsittävä avain (merkkijono)");
+				System.out.println("Korkeusilmaisin: Anna etsittävä avain (merkkijono)");
 				data = Lue.rivi();
 				try {
 					BinaryTree bt = tree.find(data);
-					System.out.println(tree.heightCalc(bt.getRoot()));
+					System.out.println("Korkeus: " + tree.heightCalc(bt.getRoot()));
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
